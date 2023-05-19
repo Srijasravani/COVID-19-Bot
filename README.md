@@ -1,5 +1,6 @@
 # COVID-19-Bot
 This code starts with:
+
 Import necessary libraries: The code starts by importing the required libraries, including requests, json, pandas, and time.
 
 Set up Slack webhook URL: The Slack webhook URL is assigned to the slack_webhook_url variable. This URL allows the code to post messages to a specific Slack channel or user.
