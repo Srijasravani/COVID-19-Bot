@@ -6,17 +6,17 @@ Set up Slack webhook URL: The Slack webhook URL is assigned to the slack_webhook
 
 Define the get_monthly_trend() function: This function takes a month as input and retrieves the monthly trend analysis for COVID-19 deaths. It performs the following steps:
 
-a.Loads the COVID-19 state-level data from a CSV file using pd.read_csv().
+1. Loads the COVID-19 state-level data from a CSV file using pd.read_csv().
 
-b.Filters the data to include only records for the specified month using the startswith() method of the 'date' column.
+2. Filters the data to include only records for the specified month using the startswith() method of the 'date' column.
 
-c.Calculates the total number of deaths for each state by grouping the data by state and summing the 'deaths' column using groupby() and sum().
+3. Calculates the total number of deaths for each state by grouping the data by state and summing the 'deaths' column using groupby() and sum().
 
-d.Sorts the states in descending order based on the number of deaths.
+4. Sorts the states in descending order based on the number of deaths.
 
-e.Calculates the total deaths in the US by summing the 'deaths' column of the state_deaths DataFrame.
+5. Calculates the total deaths in the US by summing the 'deaths' column of the state_deaths DataFrame.
 
-f.Generates a summary message that includes the top 3 states with the highest number of COVID-19 deaths for the given month, along with the percentage of those deaths compared to the total US deaths.
+6. Generates a summary message that includes the top 3 states with the highest number of COVID-19 deaths for the given month, along with the percentage of those deaths compared to the total US deaths.
 
 Define the send_to_slack() function: This function takes a message as input and sends it to Slack using the Slack webhook URL. It constructs a JSON payload with the message text and sends a POST request using requests.post().
 
