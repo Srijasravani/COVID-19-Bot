@@ -1,2 +1,21 @@
 # COVID-19-Bot
-The COVID-19 bot is a Python-powered Slack integration that provides  updates and information about the states and deaths allowing users to stay informed and take necessary precautions within the Slack platform.
+This code starts with:
+Import necessary libraries: The code starts by importing the required libraries, including requests, json, pandas, and time.
+
+Set up Slack webhook URL: The Slack webhook URL is assigned to the slack_webhook_url variable. This URL allows the code to post messages to a specific Slack channel or user.
+
+Define the get_monthly_trend() function: This function takes a month as input and retrieves the monthly trend analysis for COVID-19 deaths. It performs the following steps:
+a.Loads the COVID-19 state-level data from a CSV file using pd.read_csv().
+b.Filters the data to include only records for the specified month using the startswith() method of the 'date' column.
+c.Calculates the total number of deaths for each state by grouping the data by state and summing the 'deaths' column using groupby() and sum().
+d.Sorts the states in descending order based on the number of deaths.
+e.Calculates the total deaths in the US by summing the 'deaths' column of the state_deaths DataFrame.
+f.Generates a summary message that includes the top 3 states with the highest number of COVID-19 deaths for the given month, along with the percentage of those deaths compared to the total US deaths.
+
+Define the send_to_slack() function: This function takes a message as input and sends it to Slack using the Slack webhook URL. It constructs a JSON payload with the message text and sends a POST request using requests.post().
+
+Define the months list: This list contains the months for which summaries should be sent.
+
+Send the summaries at a fixed interval: The code iterates over the months list, calls the get_monthly_trend() function to retrieve the monthly trend analysis for each month, and then calls the send_to_slack() function to send the summary message to Slack. The time.sleep(1) statement introduces a 1-second delay between each summary to control the frequency of messages being sent.
+
+This code fetches COVID-19 data from a CSV file, generates monthly trend analyses for the top 3 states with the highest COVID-19 deaths, and posts the summaries to Slack using a webhook URL. It allows users to stay updated on the COVID-19 situation in specific states for different months.
