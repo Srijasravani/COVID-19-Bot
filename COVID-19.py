@@ -4,12 +4,12 @@ import pandas as pd
 import time
 
 
-slack_webhook_url = 'https://hooks.slack.com/services/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'
+slack_webhook_url = 'Slack_url'
 
 
 def get_monthly_trend(month):
    
-    df = pd.read_csv('/content/covid-19-state-level-data.csv')
+    df = pd.read_csv('data.csv')
 
     
     df_filtered = df[df['date'].str.startswith(month)]
@@ -49,4 +49,4 @@ months = ['03', '04', '05', '06']
 for month in months:
     summary = get_monthly_trend(month)
     send_to_slack(summary)
-    time.sleep(1)  # Sleep for 10 seconds before sending the next summary
+    time.sleep(1)  
